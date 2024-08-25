@@ -3,6 +3,8 @@
     public interface IProductRepository
     {
         IEnumerable<Product> GetAll();
+        Product GetById(Guid id);
         bool Add(Product product);
+        bool Update(Product product);
     }
 }

@@ -42,7 +42,7 @@ namespace Infrastructure.Products
             }
         }
 
-        public void Update(Product product)
+        public bool Update(Product product)
         {
             var products = GetAll().ToList();
             var index = products.FindIndex(p => p.Id == product.Id);
@@ -51,6 +51,7 @@ namespace Infrastructure.Products
                 products[index] = product;
                 Save(products);
             }
+            return true;
         }
 
         private void Save(List<Product> products)

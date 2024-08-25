@@ -49,19 +49,21 @@ namespace Presentation.Controllers
         }
 
         // GET: ProductController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            Product product = _productService.GetById(id);
+            return View(product);
         }
 
         // POST: ProductController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Update(Product product)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (_productService.Update(product)) { return RedirectToAction(nameof(Index)); }
+                else { return View("Error"); }
             }
             catch
             {

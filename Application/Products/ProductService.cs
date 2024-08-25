@@ -16,6 +16,10 @@ namespace Application.Products
             return _productRepository.GetAll();
         }
 
+        public Product GetById(Guid id) {
+            return _productRepository.GetById(id);
+        }
+
         public bool Add(ProductAddModel productAddModel) {
             Product product = new Product()
             {
@@ -29,6 +33,11 @@ namespace Application.Products
                 Quantity = productAddModel.Quantity
             };
             return _productRepository.Add(product);
+        }
+
+        public bool Update(Product product)
+        {
+            return _productRepository.Update(product);
         }
 
         private IEnumerable<Product> GetLocalProducts()
