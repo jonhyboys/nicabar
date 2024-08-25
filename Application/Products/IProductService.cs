@@ -8,5 +8,6 @@ namespace Application.Products
         Product GetById(Guid id);
         bool Add(ProductAddModel productAddModel);
         bool Update(Product product);
+        bool Delete(Guid id);
     }
 }

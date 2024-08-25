@@ -40,6 +40,11 @@ namespace Application.Products
             return _productRepository.Update(product);
         }
 
+        public bool Delete(Guid id)
+        {
+            return _productRepository.Delete(id);
+        }
+
         private IEnumerable<Product> GetLocalProducts()
         {
             return new List<Product>() {

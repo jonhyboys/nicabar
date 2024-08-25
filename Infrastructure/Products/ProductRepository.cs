@@ -31,7 +31,7 @@ namespace Infrastructure.Products
             return true;
         }
 
-        public void Delete(Guid id)
+        public bool Delete(Guid id)
         {
             var products = GetAll().ToList();
             var product = products.Find(p => p.Id == id);
@@ -40,6 +40,7 @@ namespace Infrastructure.Products
                 products.Remove(product);
                 Save(products);
             }
+            return true;
         }
 
         public bool Update(Product product)
