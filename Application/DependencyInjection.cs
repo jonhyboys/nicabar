@@ -1,4 +1,5 @@
 ﻿using Application.Products;
+using Application.Sales;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Application
@@ -8,6 +9,7 @@ namespace Application
         public static void AddApplication(this IServiceCollection services)
         {
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ISaleService, SaleService>();
         }
     }
 }
