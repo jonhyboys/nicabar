@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35208.52
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPWeb", "..\ASPWeb\ASPWeb.csproj", "{937C6A26-C792-472D-AEB7-F52C38936715}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{EC060113-D80E-4020-A636-B44781612FC1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "..\Domain\Domain\Domain.csproj", "{B4A46846-51FA-4C63-B382-173EC8B2D1B3}"
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{937C6A26-C792-472D-AEB7-F52C38936715}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{937C6A26-C792-472D-AEB7-F52C38936715}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{937C6A26-C792-472D-AEB7-F52C38936715}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{937C6A26-C792-472D-AEB7-F52C38936715}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B4A46846-51FA-4C63-B382-173EC8B2D1B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B4A46846-51FA-4C63-B382-173EC8B2D1B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4A46846-51FA-4C63-B382-173EC8B2D1B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -32,9 +26,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{937C6A26-C792-472D-AEB7-F52C38936715} = {EC060113-D80E-4020-A636-B44781612FC1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DB0F9680-E80C-4210-91EF-DDB58D13868E}
