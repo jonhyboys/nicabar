@@ -8,9 +8,9 @@ namespace Domain.Products
         [Display(Name="Nombre")]
         public string Name { get; set; }
         [Display(Name="Descripción")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
         [Display(Name="Presentación")]
-        public string Presentation { get; set; }
+        public string? Presentation { get; set; }
         public Guid Measure { get; set; }
         [Display(Name="Costo")]
         public decimal Cost { get; set; }

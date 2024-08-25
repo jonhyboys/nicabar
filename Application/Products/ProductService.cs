@@ -13,10 +13,21 @@ namespace Application.Products
 
         public IEnumerable<Product> GetAll()
         {
-            return GetLocalProducts();
+            return _productRepository.GetAll();
         }
 
-        public bool Add(Product product) {
+        public bool Add(ProductAddModel productAddModel) {
+            Product product = new Product()
+            {
+                Id = Guid.NewGuid(),
+                Name = productAddModel.Name,
+                Description = productAddModel.Description,
+                Presentation = productAddModel.Presentation,
+                Measure = Guid.NewGuid(),
+                Cost = productAddModel.Cost,
+                Price = productAddModel.Price,
+                Quantity = productAddModel.Quantity
+            };
             return _productRepository.Add(product);
         }
 

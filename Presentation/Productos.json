@@ -1,0 +1,12 @@
+[
+  {
+    "Id": "43e87d81-5bb6-496e-bc24-27e4467b51f9",
+    "Name": "Centenario 12",
+    "Description": "Bebida alcoh\u00F3lica",
+    "Presentation": "Media",
+    "Measure": "e30152af-b7e4-4881-8897-28987c275aee",
+    "Cost": 230,
+    "Price": 600,
+    "Quantity": 10
+  }
+]

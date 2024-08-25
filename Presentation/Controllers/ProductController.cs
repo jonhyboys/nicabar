@@ -35,11 +35,12 @@ namespace Presentation.Controllers
         // POST: ProductController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Add(Product product)
+        public ActionResult Add(ProductAddModel productAddModel)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (_productService.Add(productAddModel)) { return RedirectToAction(nameof(Index)); }
+                else { return View("Error"); }
             }
             catch
             {
