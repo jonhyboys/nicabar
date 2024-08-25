@@ -4,9 +4,20 @@ namespace Application.Products
 {
     internal class ProductService : IProductService
     {
+        private readonly IProductRepository _productRepository;
+
+        public ProductService(IProductRepository productRepository)
+        {
+            _productRepository = productRepository;
+        }
+
         public IEnumerable<Product> GetAll()
         {
             return GetLocalProducts();
+        }
+
+        public bool Add(Product product) {
+            return _productRepository.Add(product);
         }
 
         private IEnumerable<Product> GetLocalProducts()

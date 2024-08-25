@@ -35,7 +35,7 @@ namespace Presentation.Controllers
         // POST: ProductController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Add(Product product)
         {
             try
             {

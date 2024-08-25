@@ -5,5 +5,6 @@ namespace Application.Products
     public interface IProductService
     {
         IEnumerable<Product> GetAll();
+        bool Add(Product product);
     }
 }
