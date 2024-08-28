@@ -5,5 +5,12 @@
     "Product": "43e87d81-5bb6-496e-bc24-27e4467b51f9",
     "Quantity": 1,
     "Note": null
+  },
+  {
+    "Id": "7af1ac18-b34e-4577-9853-49a46045ec25",
+    "Table": 0,
+    "Product": "00000000-0000-0000-0000-000000000000",
+    "Quantity": 0,
+    "Note": null
   }
 ]

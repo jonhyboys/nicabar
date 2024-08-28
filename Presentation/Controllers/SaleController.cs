@@ -1,22 +1,30 @@
 ﻿using Application.Sales;
+using Application.Tables;
 using Domain.Sales;
+using Domain.Tables;
 using Microsoft.AspNetCore.Mvc;
+using Presentation.Models;
 
 namespace Presentation.Controllers
 {
     public class SaleController : Controller
     {
         private readonly ISaleService _saleService;
+        private readonly ITableService _tableService;
 
-        public SaleController(ISaleService saleService)
+        public SaleController(
+            ISaleService saleService,
+            ITableService tableService)
         {
-            _saleService = saleService;            
+            _saleService = saleService;
+            _tableService = tableService;
         }
 
         // GET: SaleController
         public ActionResult Index()
         {
-            return View(new List<Sale>());
+            IEnumerable<Table> Tables = _tableService.GetAll();
+            return View(Tables);
         }
 
         // GET: SaleController/Details/5
@@ -28,7 +36,10 @@ namespace Presentation.Controllers
         // GET: SaleController/Create
         public ActionResult Create()
         {
-            return View();
+            SaleViewModel viewModel = new SaleViewModel() {
+                Tables = _tableService.GetAll()
+            };
+            return View(viewModel);
         }
 
         // POST: SaleController/Create
