@@ -1,4 +1,5 @@
-﻿using Application.Sales;
+﻿using Application.Products;
+using Application.Sales;
 using Application.Tables;
 using Domain.Sales;
 using Domain.Tables;
@@ -11,13 +12,16 @@ namespace Presentation.Controllers
     {
         private readonly ISaleService _saleService;
         private readonly ITableService _tableService;
+        private readonly IProductService _productService;
 
         public SaleController(
             ISaleService saleService,
-            ITableService tableService)
+            ITableService tableService,
+            IProductService productService)
         {
             _saleService = saleService;
             _tableService = tableService;
+            _productService = productService;
         }
 
         // GET: SaleController
@@ -34,12 +38,12 @@ namespace Presentation.Controllers
         }
 
         // GET: SaleController/Create
-        public ActionResult Create()
+        public ActionResult Create(Guid table)
         {
-            SaleViewModel viewModel = new SaleViewModel() {
-                Tables = _tableService.GetAll()
-            };
-            return View(viewModel);
+            ViewData["ProductList"] = _productService.GetAll();
+            Sale model = new Sale();
+            model.Table = table;
+            return View(model);
         }
 
         // POST: SaleController/Create

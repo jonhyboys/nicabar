@@ -8,5 +8,35 @@
     "Cost": 230,
     "Price": 600,
     "Quantity": 15
+  },
+  {
+    "Id": "d46a15b1-8c5b-4685-ac16-5c9beb9ea45e",
+    "Name": "Extra lite",
+    "Description": "Guaro",
+    "Presentation": "375 ml",
+    "Measure": "c55c585d-5a8a-4103-99dd-9687a0bc3ff2",
+    "Cost": 50,
+    "Price": 200,
+    "Quantity": 50
+  },
+  {
+    "Id": "4fa84ddb-012d-41e0-889e-ff6fcba5f0ee",
+    "Name": "Ron Oro",
+    "Description": null,
+    "Presentation": "375 ml",
+    "Measure": "da89335b-5bd6-4dea-8c88-73b8c645964f",
+    "Cost": 65,
+    "Price": 280,
+    "Quantity": 80
+  },
+  {
+    "Id": "a0e1d7e3-ac9a-4f7a-87b9-469ca02fae9f",
+    "Name": "To\u00F1a",
+    "Description": null,
+    "Presentation": "330 ml",
+    "Measure": "88db7fa7-e6a5-4e16-84ce-2d51e86a9804",
+    "Cost": 10,
+    "Price": 36,
+    "Quantity": 500
   }
 ]

@@ -11,7 +11,7 @@
     <div id="table-list">
         @foreach (var table in Model)
         {
-            <div>@Html.ActionLink(table.Name.ToString(), "Create", new { id = table.Id })</div>
+            <div>@Html.ActionLink(table.Name.ToString(), "Create", new { table = table.Id })</div>
         }
     </div>
 </div>

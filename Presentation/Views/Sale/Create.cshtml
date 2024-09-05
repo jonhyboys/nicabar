@@ -1,33 +1,61 @@
-﻿@model Presentation.Models.SaleViewModel
+﻿@using Domain.Products
+@model Domain.Sales.Sale
 
 @{
     ViewData["Title"] = "Nueva venta";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section Styles {
+    <link rel="stylesheet" href="~/css/Sales/Sales.css" />
+}
+
+<div id="product-container">
+    <div>
+        <h2>Bebidas</h2>
+        <ul id="product-list">
+            @foreach(Product product in ViewData["productList"] as List<Product>)
+            {
+                <li data-id="@product.Id">
+                    <p>@product.Name</p>
+                    <strong>0</strong>
+                </li>
+            }
+        </ul>
+    </div>
+    <div>
+        <h2>Guaro</h2>
+    </div>
+    <div>
+        <h2>Comida</h2>
+    </div>
+    <div>
+        <h2>Otros</h2>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Add">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="SaleModel.Table" class="control-label"></label>
-                <input asp-for="SaleModel.Table" class="form-control" />
-                <span asp-validation-for="SaleModel.Table" class="text-danger"></span>
+                <label asp-for="Table" class="control-label"></label>
+                <input asp-for="Table" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="SaleModel.Product" class="control-label"></label>
-                <input asp-for="SaleModel.Product" class="form-control" />
-                <span asp-validation-for="SaleModel.Product" class="text-danger"></span>
+                <label asp-for="Product" class="control-label"></label>
+                <input asp-for="Product" class="form-control" id="product" />
+                <span asp-validation-for="Product" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SaleModel.Quantity" class="control-label"></label>
-                <input asp-for="SaleModel.Quantity" class="form-control" />
-                <span asp-validation-for="SaleModel.Quantity" class="text-danger"></span>
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" class="form-control" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SaleModel.Note" class="control-label"></label>
-                <input asp-for="SaleModel.Note" class="form-control" />
-                <span asp-validation-for="SaleModel.Note" class="text-danger"></span>
+                <label asp-for="Note" class="control-label"></label>
+                <input asp-for="Note" class="form-control" />
+                <span asp-validation-for="Note" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -42,4 +70,5 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/Sales/Sales.js"></script>
 }

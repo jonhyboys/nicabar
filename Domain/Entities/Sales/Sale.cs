@@ -6,7 +6,7 @@ namespace Domain.Sales
     {
         public Guid Id { get; set; }
         [Display(Name ="Mesa")]
-        public int Table { get; set; }
+        public Guid Table { get; set; }
         [Display(Name = "Producto")]
         public Guid Product { get; set; }
         [Display(Name = "Cantidad")]

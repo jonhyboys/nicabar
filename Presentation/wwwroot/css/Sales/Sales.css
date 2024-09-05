@@ -1,0 +1,16 @@
+﻿#product-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+#product-list li {
+    background: #DADADA;
+    cursor: pointer;
+    padding: 10px;
+}
+
+#product-list strong {
+    display: inline-block;
+    text-align: right;
+    width: 100%;
+}

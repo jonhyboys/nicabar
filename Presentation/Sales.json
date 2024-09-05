@@ -1,16 +1,9 @@
 [
   {
-    "Id": "dc94c69a-f7b8-4e5a-bb1f-c36c62a493a7",
-    "Table": 1,
+    "Id": "3ff487c6-f348-42f7-9263-633f3c7fe117",
+    "Table": "5df9b9d1-7475-418b-9660-0e4382494268",
     "Product": "43e87d81-5bb6-496e-bc24-27e4467b51f9",
-    "Quantity": 1,
-    "Note": null
-  },
-  {
-    "Id": "7af1ac18-b34e-4577-9853-49a46045ec25",
-    "Table": 0,
-    "Product": "00000000-0000-0000-0000-000000000000",
     "Quantity": 0,
-    "Note": null
+    "Note": "Uno"
   }
 ]
