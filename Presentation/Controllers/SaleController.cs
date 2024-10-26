@@ -38,9 +38,10 @@ namespace Presentation.Controllers
         }
 
         // GET: SaleController/Create
-        public ActionResult Create(Guid table)
+        public ActionResult Create(Guid table, string tableName)
         {
             ViewData["ProductList"] = _productService.GetAll();
+            ViewData["TableName"] = tableName;
             Sale model = new Sale();
             model.Table = table;
             return View(model);

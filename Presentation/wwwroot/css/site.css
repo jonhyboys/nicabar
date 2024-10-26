@@ -21,31 +21,37 @@ body {
   margin-bottom: 60px;
 }
 
+body, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
 li {
     list-style: none;
 }
 
 .hide {
-    display: none;
+    display: none !important;
 }
 
 /* Ventas */
 #table-list {
-    display: flex;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 #table-list > div {
     background: #444;
     color: #FFF;
     cursor: pointer;
-    margin: 5px;
+    text-align: center;
 }
 
 #table-list a {
     color: #DADADA;
     display: block;
     font-size: 50px;
-    padding: 50px;
     text-decoration: none;
 }
 

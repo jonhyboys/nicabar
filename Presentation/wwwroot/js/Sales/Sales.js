@@ -1,17 +1,82 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
-    var productList = document.getElementById('product-list');
-    var product = document.getElementById('product');
+﻿(() => {
+    var saleResume = {
+        products: [],
+        total: 0
+    };
 
-    productList.addEventListener('click', function (event) {
-        if (event.target && event.target.nodeName === 'LI') {
-            var productId = event.target.getAttribute('data-id');
-            product.value = productId;
-        }
+    $(document).ready(function () {
+        $('.showProducts-button').on('click', OnClick_ShowProduct);
+        $('.product-list').on('click', '.minus-button', OnClick_MinusButton);
+        $('.product-list').on('click', '.plus-button', OnClick_PlusButton);
     });
-});
 
-$('#product-list').on('click', 'li', function () {
-    let counter = $(this).children('strong').eq(0);
-    let newCounterValue = parseInt($(counter).html()) + 1; 
-    $(counter).html(newCounterValue);
-});
+    function OnClick_MinusButton() {
+        let product = getProduct(this);
+        if (product.saleCount > 0) { updateCount(product, -1); }
+        //updateProductSelected(parent);
+    }
+
+    function OnClick_PlusButton() {
+        let product = getProduct(this);
+        if (product.inventoryCount > 0) { updateCount(product, 1); }
+        //updateProductSelected(parent);
+    }
+
+    function OnClick_ShowProduct() {
+        let productList = $(this).parent().next();
+        if ($(productList).hasClass('hide')) {
+            showProducts(productList);
+            $(this).html('-');
+        }
+        else {
+            hideProducts(productList);
+            $(this).html('+');
+        }
+    }
+
+    function showProducts(productList) {
+        $('.product-list').addClass('hide');
+        $('.showProducts-button').html('+');
+        $(productList).removeClass('hide');
+    }
+
+    function hideProducts(productList) {
+        $(productList).addClass('hide');
+    }
+
+    function updateProductSelected(parentObj) {
+        let id = $(parentObj).parent().attr('data-id');
+        $('#product').val(id);
+    }
+
+    function updateCount(product, plusValue) {
+        product.saleCount += plusValue;
+        product.inventoryCount -= plusValue;
+        $('li[data-id="' + product.id + '"]').find('strong.to-sale').text(product.saleCount);
+        $('li[data-id="' + product.id + '"]').find('em.inventory').text(product.inventoryCount);
+        updateSaleResume(product);
+    }
+
+    //Product
+    function getProduct(target) {
+        return {
+            id: $(target).parents('li').attr('data-id'),
+            saleCount: parseInt($(target).siblings('span').find('strong.to-sale').text(), 10),
+            inventoryCount: parseInt($(target).siblings('span').find('em.inventory').text(), 10),
+            price: parseFloat($(target).parents('li').attr('data-price'))
+        };
+    }
+
+    //SaleResume
+    function updateSaleResume(product) {
+        var productIndex = getProductIndexInSaleResume(product.id);
+        if (productIndex > -1) {
+            if (product.count == 0) { saleResume.products.splice(productIndex, 1) }
+            else { saleResume.products[productIndex] = product; }            
+        }
+        else { saleResume.products.push(product); }
+        console.log(saleResume);
+    }
+
+    function getProductIndexInSaleResume(id) { return saleResume.products.findIndex(item => item.id === id); }
+})();

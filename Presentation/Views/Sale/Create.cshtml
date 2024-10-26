@@ -2,7 +2,7 @@
 @model Domain.Sales.Sale
 
 @{
-    ViewData["Title"] = "Nueva venta";
+    ViewData["Title"] = "Venta - Mesa " + ViewData["TableName"];
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -11,27 +11,91 @@
 }
 
 <div id="product-container">
-    <div>
-        <h2>Bebidas</h2>
-        <ul id="product-list">
+    <div class="category">
+        <h2>Bebidas<span class="showProducts-button">+</span></h2>
+        <ul class="product-list hide">
             @foreach(Product product in ViewData["productList"] as List<Product>)
             {
-                <li data-id="@product.Id">
-                    <p>@product.Name</p>
-                    <strong>0</strong>
+                <li data-id="@product.Id" data-price="@product.Price">
+                    <div>@product.Name</div>
+                    <div class="counter">
+                        <span class="minus-button">-</span>
+                        <span>
+                            <strong class="to-sale">0</strong>
+                            <em class="inventory">100</em>
+                        </span>
+                        <span class="plus-button">+</span>
+                    </div>
                 </li>
             }
         </ul>
     </div>
-    <div>
-        <h2>Guaro</h2>
+    <div class="category">
+        <h2>Guaro<span class="showProducts-button">+</span></h2>
+        <ul class="product-list hide">
+            @foreach (Product product in ViewData["productList"] as List<Product>)
+            {
+                <li data-id="@product.Id" data-price="@product.Price">
+                    <div>@product.Name</div>
+                    <div class="counter">
+                        <span class="minus-button">-</span>
+                        <span>
+                            <strong class="to-sale">0</strong>
+                            <em class="inventory">100</em>
+                        </span>
+                        <span class="plus-button">+</span>
+                    </div>
+                </li>
+            }
+        </ul>
     </div>
-    <div>
-        <h2>Comida</h2>
+    <div class="category">
+        <h2>Comida<span class="showProducts-button">+</span></h2>
+        <ul class="product-list hide">
+            @foreach (Product product in ViewData["productList"] as List<Product>)
+            {
+                <li data-id="@product.Id" data-price="@product.Price">
+                    <div>@product.Name</div>
+                    <div class="counter">
+                        <span class="minus-button">-</span>
+                        <span>
+                            <strong class="to-sale">0</strong>
+                            <em class="inventory">100</em>
+                        </span>
+                        <span class="plus-button">+</span>
+                    </div>
+                </li>
+            }
+        </ul>
     </div>
-    <div>
-        <h2>Otros</h2>
+    <div class="category">
+        <h2>Otros<span class="showProducts-button">+</span></h2>
+        <ul class="product-list hide">
+            @foreach (Product product in ViewData["productList"] as List<Product>)
+            {
+                <li data-id="@product.Id" data-price="@product.Price">
+                    <div>@product.Name</div>
+                    <div class="counter">
+                        <span class="minus-button">-</span>
+                        <span>
+                            <strong class="to-sale">0</strong>
+                            <em class="inventory">100</em>
+                        </span>
+                        <span class="plus-button">+</span>
+                    </div>
+                </li>
+            }
+        </ul>
     </div>
+</div>
+
+<div id="sale-resume">
+    <ul>
+        <li>
+            <span class="product-name">Coca-cola</span><span class="product-quantity">5</span>
+        </li>
+    </ul>
+    <button>Guardar</button>
 </div>
 
 <div class="row">
@@ -70,5 +134,5 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    <script src="~/js/Sales/Sales.js"></script>
+    <script src="~/js/Sales/Sales.js?V=1.1"></script>
 }

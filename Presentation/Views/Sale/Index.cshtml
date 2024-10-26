@@ -6,12 +6,11 @@
 }
 
 <div>
-    <h1>Ventas</h1>
-    <p>Elija la mesa a la que quiere registrar la venta</p>
+    <p>Elija una mesa</p>
     <div id="table-list">
         @foreach (var table in Model)
         {
-            <div>@Html.ActionLink(table.Name.ToString(), "Create", new { table = table.Id })</div>
+            <div>@Html.ActionLink(table.Name.ToString(), "Create", new { table = table.Id, tableName = table.Name })</div>
         }
     </div>
 </div>
