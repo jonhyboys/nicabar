@@ -61,6 +61,7 @@
     function getProduct(target) {
         return {
             id: $(target).parents('li').attr('data-id'),
+            name: 'Coca',
             saleCount: parseInt($(target).siblings('span').find('strong.to-sale').text(), 10),
             inventoryCount: parseInt($(target).siblings('span').find('em.inventory').text(), 10),
             price: parseFloat($(target).parents('li').attr('data-price'))
@@ -71,12 +72,33 @@
     function updateSaleResume(product) {
         var productIndex = getProductIndexInSaleResume(product.id);
         if (productIndex > -1) {
-            if (product.count == 0) { saleResume.products.splice(productIndex, 1) }
-            else { saleResume.products[productIndex] = product; }            
+            if (product.saleCount == 0) {
+                saleResume.products.splice(productIndex, 1);
+                removeProductFromSaleResumeView(product.id);
+            }
+            else {
+                saleResume.products[productIndex] = product;
+                updateProductToSaleResumeView(product);
+            }            
         }
-        else { saleResume.products.push(product); }
+        else {
+            saleResume.products.push(product);
+            addProductToSaleResumeView(product);
+        }
         console.log(saleResume);
     }
 
     function getProductIndexInSaleResume(id) { return saleResume.products.findIndex(item => item.id === id); }
+
+    function updateProductToSaleResumeView(product) {
+        $('#sale-resume li[data-id="' + product.id + '"] strong').text(product.saleCount);
+    }
+
+    function addProductToSaleResumeView(product) {
+        $('#sale-resume > ul').append('<li data-id="' + product.id + '"><span>' + product.name + '</span><strong>' + product.saleCount + '</strong></li>');
+    }
+
+    function removeProductFromSaleResumeView(productId) {
+        $('#sale-resume li[data-id="' + productId + '"]').remove();
+    }
 })();
