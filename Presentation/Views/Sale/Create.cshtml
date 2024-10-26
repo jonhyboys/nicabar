@@ -90,15 +90,17 @@
 </div>
 
 <div id="sale-resume">
+    <h1>Resumen de esta venta</h1>
     <ul>
         <li>
-            <span class="product-name">Coca-cola</span><span class="product-quantity">5</span>
+            <span class="product-name">Coca-cola</span>
+            <strong class="product-count">5</strong>
         </li>
     </ul>
-    <button>Guardar</button>
+    <input type="submit" value="Guardar" class="btn btn-primary" id="btn-save" />
 </div>
 
-<div class="row">
+<div class="row hide">
     <div class="col-md-4">
         <form asp-action="Add">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -126,10 +128,6 @@
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

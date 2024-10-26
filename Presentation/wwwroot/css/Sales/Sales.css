@@ -46,3 +46,27 @@
         }
 
 .counter em { font-size: .4em; }
+
+#sale-resume {
+    border-top: 1px solid #999;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 15px;
+}
+
+#sale-resume > h1 {
+    font-size: 1em;
+    text-align: right;
+}
+
+#sale-resume li {
+    display: flex;
+    justify-content: space-between;
+}
+
+#sale-resume strong.product-count { font-size: 1.3em; }
+
+#sale-resume #btn-save {
+    margin-top: 30px;
+}
