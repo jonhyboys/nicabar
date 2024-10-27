@@ -31,6 +31,14 @@ namespace Infrastructure.Sales
             return true;
         }
 
+        public bool AddOrder(Order order, Guid saleId)
+        {
+            Sale sale = GetById(saleId);
+            sale.Orders.Add(order);
+            Update(sale);
+            return true;
+        }
+
         public bool Delete(Guid id)
         {
             var sales = GetAll().ToList();

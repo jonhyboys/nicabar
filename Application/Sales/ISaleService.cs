@@ -4,6 +4,6 @@ namespace Application.Sales
 {
     public interface ISaleService
     {
-        bool Add(SaleAddModel saleAddModel);
+        Guid Add(SaleAddModel saleAddModel);
     }
 }

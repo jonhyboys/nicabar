@@ -1,25 +1,24 @@
 ﻿(() => {
     var saleResume = {
-        products: [],
-        total: 0
+        products: []
     };
 
     $(document).ready(function () {
         $('.showProducts-button').on('click', OnClick_ShowProduct);
         $('.product-list').on('click', '.minus-button', OnClick_MinusButton);
         $('.product-list').on('click', '.plus-button', OnClick_PlusButton);
+        $('#btn-save').on('click', OnClick_SaveButton);
     });
 
+    //Events
     function OnClick_MinusButton() {
         let product = getProduct(this);
-        if (product.saleCount > 0) { updateCount(product, -1); }
-        //updateProductSelected(parent);
+        if (product.saleCount > 0) { updateProductCount(product, -1); }
     }
 
     function OnClick_PlusButton() {
         let product = getProduct(this);
-        if (product.inventoryCount > 0) { updateCount(product, 1); }
-        //updateProductSelected(parent);
+        if (product.inventoryCount > 0) { updateProductCount(product, 1); }
     }
 
     function OnClick_ShowProduct() {
@@ -34,22 +33,18 @@
         }
     }
 
+    function OnClick_SaveButton() { postOrder(); }
+
+    //Products
     function showProducts(productList) {
         $('.product-list').addClass('hide');
         $('.showProducts-button').html('+');
         $(productList).removeClass('hide');
     }
 
-    function hideProducts(productList) {
-        $(productList).addClass('hide');
-    }
+    function hideProducts(productList) { $(productList).addClass('hide'); }
 
-    function updateProductSelected(parentObj) {
-        let id = $(parentObj).parent().attr('data-id');
-        $('#product').val(id);
-    }
-
-    function updateCount(product, plusValue) {
+    function updateProductCount(product, plusValue) {
         product.saleCount += plusValue;
         product.inventoryCount -= plusValue;
         $('li[data-id="' + product.id + '"]').find('strong.to-sale').text(product.saleCount);
@@ -57,7 +52,6 @@
         updateSaleResume(product);
     }
 
-    //Product
     function getProduct(target) {
         return {
             id: $(target).parents('li').attr('data-id'),
@@ -100,5 +94,48 @@
 
     function removeProductFromSaleResumeView(productId) {
         $('#sale-resume li[data-id="' + productId + '"]').remove();
+    }
+
+    function getOrder() {
+        let products = [];
+        $('#sale-resume > ul > li').each(function (index, product){
+            products.push({
+                Product: $(product).attr('data-id'),
+                Quantity: parseInt($(product).find('strong').text(), 10)
+            });
+        });
+        return {
+            Sale: $('#sale-resume').attr('data-id') || null,
+            Table: $('#sale-resume').attr('data-table'),
+            Order: {
+                Id: null,
+                Products: products,
+                Note: ''
+            }
+        };
+    }
+
+    function clearOrder(saleId) {
+        $('#sale-resume').attr('data-id', saleId);
+        $('#sale-resume > ul').html('');
+        $('strong.to-sale').text('0');
+        saleResume.products = [];
+    }
+
+    //Server
+    function postOrder() {
+        $.ajax({
+            url: 'add',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(getOrder()),
+            success: function (response) {
+                console.log("Respuesta del servidor:", response);
+                clearOrder(response);
+            },
+            error: function (xhr, status, error) {
+                console.error("Error en la petición:", error);
+            }
+        });
     }
 })();

@@ -11,16 +11,31 @@ namespace Application.Sales
             _saleRepository = saleRepository;
         }
 
-        public bool Add(SaleAddModel saleAddModel)
+        public Guid Add(SaleAddModel saleAddModel)
         {
-            Sale sale = new Sale() {
-                Id = Guid.NewGuid(),
-                Table = saleAddModel.Table,
-                Product = saleAddModel.Product,
-                Quantity = saleAddModel.Quantity,
-                Note = saleAddModel.Note
-            };
-            return _saleRepository.Add(sale);
+            Guid id;
+            if(saleAddModel.Sale != null)
+            {
+                id = saleAddModel.Sale ?? Guid.NewGuid();
+                _saleRepository.AddOrder(new Order()
+                {
+                    Id = Guid.NewGuid(),
+                    Products = saleAddModel.Order.Products,
+                    Note = ""
+                }, id);
+            }
+            else
+            {
+                id = Guid.NewGuid();
+                saleAddModel.Order.Id = Guid.NewGuid();
+                _saleRepository.Add(new Sale()
+                {
+                    Id = id,
+                    Table = saleAddModel.Table,
+                    Orders = [saleAddModel.Order]
+                });
+            }
+            return id;
         }
     }
 }

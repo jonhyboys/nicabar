@@ -54,18 +54,9 @@ namespace Presentation.Controllers
 
         // POST: SaleController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Add(SaleAddModel saleAddModel)
+        public string Add([FromBody] SaleAddModel sale)
         {
-            try
-            {
-                if (_saleService.Add(saleAddModel)) { return RedirectToAction(nameof(Index)); }
-                else { return View("Error"); }
-            }
-            catch
-            {
-                return View();
-            }
+            return _saleService.Add(sale).ToString();
         }
 
         // GET: SaleController/Edit/5
