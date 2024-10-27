@@ -1,4 +1,5 @@
-﻿using Domain.Products;
+﻿using Domain.Entities.Products;
+using Domain.Products;
 using System.Text.Json;
 
 namespace Infrastructure.Products

@@ -1,42 +1,57 @@
 [
   {
-    "Id": "43e87d81-5bb6-496e-bc24-27e4467b51f9",
-    "Name": "Centenario 12",
-    "Description": "Bebida alcoh\u00F3lica",
-    "Presentation": "Media",
-    "Measure": "e30152af-b7e4-4881-8897-28987c275aee",
-    "Cost": 230,
-    "Price": 600,
-    "Quantity": 15
+    "Id": "7f05fac6-d0c9-4571-a3bb-8fadb653b204",
+    "Category": "dc5e8755-1c50-415e-9f9e-2ddbade3e45b",
+    "Name": "Coca cola",
+    "Description": "Bebida carbonatada",
+    "Presentation": "388cfce9-9ff4-474c-b7bd-c445b346c56e",
+    "Measure": "8149b874-f669-4103-a706-151244345fe5",
+    "Cost": 15,
+    "Price": 35,
+    "Quantity": 100
   },
   {
-    "Id": "d46a15b1-8c5b-4685-ac16-5c9beb9ea45e",
-    "Name": "Extra lite",
-    "Description": "Guaro",
-    "Presentation": "375 ml",
-    "Measure": "c55c585d-5a8a-4103-99dd-9687a0bc3ff2",
+    "Id": "f644abbc-3567-4883-8a25-6db366a2f0f3",
+    "Category": "8efd193f-5e23-4802-9351-d568a4b84286",
+    "Name": "Tostones",
+    "Description": "Comida",
+    "Presentation": "81760864-5777-4098-b621-6300deee342c",
+    "Measure": "085a79a9-b9be-4687-8d67-fcf8e3dd74d2",
     "Cost": 50,
-    "Price": 200,
-    "Quantity": 50
+    "Price": 150,
+    "Quantity": 10
   },
   {
-    "Id": "4fa84ddb-012d-41e0-889e-ff6fcba5f0ee",
-    "Name": "Ron Oro",
-    "Description": null,
-    "Presentation": "375 ml",
-    "Measure": "da89335b-5bd6-4dea-8c88-73b8c645964f",
-    "Cost": 65,
-    "Price": 280,
+    "Id": "09773c7b-5bae-46c7-87d9-4ba71a1ace54",
+    "Category": "09dbf864-fc95-4b8d-8873-a826deef7b57",
+    "Name": "Ron plata",
+    "Description": "Ron",
+    "Presentation": "d6335857-76d0-43a8-9f05-cefab11e0c13",
+    "Measure": "115b7a09-cfb3-427c-a610-47a8c300f6e2",
+    "Cost": 75,
+    "Price": 215,
     "Quantity": 80
   },
   {
-    "Id": "a0e1d7e3-ac9a-4f7a-87b9-469ca02fae9f",
+    "Id": "ad3935a4-8c28-4c1b-b195-6778c9faa0ed",
+    "Category": "09dbf864-fc95-4b8d-8873-a826deef7b57",
     "Name": "To\u00F1a",
-    "Description": null,
-    "Presentation": "330 ml",
-    "Measure": "88db7fa7-e6a5-4e16-84ce-2d51e86a9804",
-    "Cost": 10,
-    "Price": 36,
-    "Quantity": 500
+    "Description": "Cerveza",
+    "Presentation": "8c9afd5c-bacb-4ff1-a923-cab83b8625b8",
+    "Measure": "8654b80c-628c-4e60-8fbb-a73070287ea6",
+    "Cost": 15,
+    "Price": 35,
+    "Quantity": 280
+  },
+  {
+    "Id": "ac8cfe27-0f67-4565-8134-f39bea542a3f",
+    "Category": "dc5e8755-1c50-415e-9f9e-2ddbade3e45b",
+    "Name": "Limonada",
+    "Description": "Refresco",
+    "Presentation": "3b5b5694-0f7e-4ffb-8711-8a131db733c8",
+    "Measure": "4a8c0e7a-ec3f-4f87-a380-c9ebbd4dc63d",
+    "Cost": 15,
+    "Price": 35,
+    "Quantity": 280
   }
 ]

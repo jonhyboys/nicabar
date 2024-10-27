@@ -12,12 +12,15 @@
 }
 
 <div id="product-container">
-    @foreach(Category category in ViewData["CategoryList"] as List<Category>)
+    @foreach(Category category in ViewData["CategoryList"] as IEnumerable<Category>)
     {
+        IEnumerable<Product> products = ViewData["ProductList"] as IEnumerable<Product>;
+        products = products.Where(p => p.Category == category.Id);
+        
         <div class="category" data-id="@category.Id">
             <h2>@category.Name<span class="showProducts-button">+</span></h2>
             <ul class="product-list hide">
-                @foreach (Product product in ViewData["ProductList"] as List<Product>)
+                @foreach (Product product in products)
                 {
                     <li data-id="@product.Id" data-price="@product.Price">
                         <div>@product.Name</div>

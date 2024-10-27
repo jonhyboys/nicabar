@@ -1,0 +1,18 @@
+[
+  {
+    "Id": "dc5e8755-1c50-415e-9f9e-2ddbade3e45b",
+    "Name": "Bebidas"
+  },
+  {
+    "Id": "09dbf864-fc95-4b8d-8873-a826deef7b57",
+    "Name": "Bebidas alcoh\u00F3licas"
+  },
+  {
+    "Id": "8efd193f-5e23-4802-9351-d568a4b84286",
+    "Name": "Comida"
+  },
+  {
+    "Id": "326739ec-aed8-4d87-864a-dc7008089157",
+    "Name": "Otros"
+  }
+]

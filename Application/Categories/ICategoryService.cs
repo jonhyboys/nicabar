@@ -6,6 +6,7 @@ namespace Application.Categories
     {
         IEnumerable<Category> GetAll();
         Category GetById(Guid id);
+        IEnumerable<Category> GetInUse();
         bool Add(string name);
         bool Update(Category category);
         bool Delete(Guid id);

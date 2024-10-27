@@ -1,4 +1,6 @@
-﻿namespace Domain.Products
+﻿using Domain.Products;
+
+namespace Domain.Entities.Products
 {
     public interface IProductRepository
     {

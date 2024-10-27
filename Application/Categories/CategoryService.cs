@@ -1,24 +1,37 @@
-﻿using Domain.Categories;
+﻿using Application.Products;
+using Domain.Categories;
+using Domain.Products;
 
 namespace Application.Categories
 {
     internal class CategoryService: ICategoryService
     {
         private readonly ICategoryRepository _categoryRepository;
+        private readonly IProductService _productService;
 
-        public CategoryService(ICategoryRepository categoryRepository)
+        public CategoryService(ICategoryRepository categoryRepository, IProductService productService)
         {
             _categoryRepository = categoryRepository;
+            _productService = productService;
         }
 
         public IEnumerable<Category> GetAll()
         {
-            return GetLocalCategories(); //_categoryRepository.GetAll();
+            IEnumerable<Category> categories = _categoryRepository.GetAll();
+            if (categories.Any()) { return categories; }
+            SetLocalCategories();
+            return _categoryRepository.GetAll();
         }
 
         public Category GetById(Guid id)
         {
             return null;// _categoryRepository.GetById(id);
+        }
+
+        public IEnumerable<Category> GetInUse()
+        {
+            IEnumerable<Guid> products = _productService.GetAll().Select(p => p.Category).Distinct();
+            return GetAll().Where(c => products.Contains(c.Id));
         }
 
         public bool Add(string name)
@@ -41,22 +54,12 @@ namespace Application.Categories
             return true; // _categoryRepository.Delete(id);
         }
 
-        private IEnumerable<Category> GetLocalCategories()
+        private void SetLocalCategories()
         {
-            return new List<Category>() {
-                new Category() {
-                    Id = new Guid(),
-                    Name = "Bebidas"
-                },
-                new Category() {
-                    Id = new Guid(),
-                    Name = "Bebidas alcohólicas"
-                },
-                new Category() {
-                    Id = new Guid(),
-                    Name = "Comida"
-                }
-            };
+            Add("Bebidas");
+            Add("Bebidas alcohólicas");
+            Add("Comida");
+            Add("Otros");
         }
     }
 }

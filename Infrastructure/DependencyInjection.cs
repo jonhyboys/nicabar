@@ -1,5 +1,5 @@
 ﻿using Domain.Categories;
-using Domain.Products;
+using Domain.Entities.Products;
 using Domain.Sales;
 using Domain.Tables;
 using Infrastructure.Categories;
