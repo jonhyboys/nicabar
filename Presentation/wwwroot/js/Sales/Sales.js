@@ -61,7 +61,7 @@
     function getProduct(target) {
         return {
             id: $(target).parents('li').attr('data-id'),
-            name: 'Coca',
+            name: $(target).parent().siblings('div').text(),
             saleCount: parseInt($(target).siblings('span').find('strong.to-sale').text(), 10),
             inventoryCount: parseInt($(target).siblings('span').find('em.inventory').text(), 10),
             price: parseFloat($(target).parents('li').attr('data-price'))
