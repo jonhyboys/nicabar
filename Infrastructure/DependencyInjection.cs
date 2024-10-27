@@ -1,6 +1,8 @@
-﻿using Domain.Products;
+﻿using Domain.Categories;
+using Domain.Products;
 using Domain.Sales;
 using Domain.Tables;
+using Infrastructure.Categories;
 using Infrastructure.Products;
 using Infrastructure.Sales;
 using Infrastructure.Tables;
@@ -15,6 +17,7 @@ namespace Infrastructure
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ISaleRepository, SaleRepository>();
             services.AddScoped<ITableRepository, TableRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
         }
     }
 }

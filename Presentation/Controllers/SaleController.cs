@@ -1,10 +1,10 @@
-﻿using Application.Products;
+﻿using Application.Categories;
+using Application.Products;
 using Application.Sales;
 using Application.Tables;
 using Domain.Sales;
 using Domain.Tables;
 using Microsoft.AspNetCore.Mvc;
-using Presentation.Models;
 
 namespace Presentation.Controllers
 {
@@ -13,15 +13,18 @@ namespace Presentation.Controllers
         private readonly ISaleService _saleService;
         private readonly ITableService _tableService;
         private readonly IProductService _productService;
+        private readonly ICategoryService _categoryService;
 
         public SaleController(
             ISaleService saleService,
             ITableService tableService,
-            IProductService productService)
+            IProductService productService,
+            ICategoryService categoryService)
         {
             _saleService = saleService;
             _tableService = tableService;
             _productService = productService;
+            _categoryService = categoryService;
         }
 
         // GET: SaleController
@@ -40,6 +43,7 @@ namespace Presentation.Controllers
         // GET: SaleController/Create
         public ActionResult Create(Guid table, string tableName)
         {
+            ViewData["CategoryList"] = _categoryService.GetAll();
             ViewData["ProductList"] = _productService.GetAll();
             ViewData["TableName"] = tableName;
             Sale model = new Sale();
