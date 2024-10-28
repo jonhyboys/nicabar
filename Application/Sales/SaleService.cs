@@ -1,14 +1,54 @@
-﻿using Domain.Sales;
+﻿using Application.Products;
+using Domain.Entities.Products;
+using Domain.Products;
+using Domain.Sales;
+using Domain.Tables;
 
 namespace Application.Sales
 {
     public class SaleService : ISaleService
     {
         private readonly ISaleRepository _saleRepository;
+        private readonly ITableRepository _tableRepository;
+        private readonly IProductRepository _productRepository;
 
-        public SaleService(ISaleRepository saleRepository)
+        public SaleService(ISaleRepository saleRepository,
+            ITableRepository tableRepository,
+            IProductRepository productRepository)
         {
             _saleRepository = saleRepository;
+            _tableRepository = tableRepository;
+            _productRepository = productRepository;
+        }
+
+        public IEnumerable<InvoiceViewModel> GetAllUnpayed()
+        {
+            IEnumerable<Sale> unpayedSales = _saleRepository.GetAllUnpayed();
+            IEnumerable<Table> tables = _tableRepository.GetAll();
+            IEnumerable<Product> products = _productRepository.GetAll();
+            IEnumerable<InvoiceViewModel> result = unpayedSales.Select(sale => new InvoiceViewModel()
+            {
+                Id = sale.Id,
+                Table = sale.Table,
+                TableName = "Mesa " + tables.FirstOrDefault(t => t.Id == sale.Table)?.Name.ToString(),
+                Products = sale.Orders.SelectMany(order => order.Products)
+                                        .GroupBy(po => po.Product)
+                                        .Select(g => {
+                                            var product = products.FirstOrDefault(p => p.Id == g.Key);
+                                            var quantity = g.Sum(po => po.Quantity);
+                                            return new ProductSaleViewModel()
+                                            {
+                                                Id = product.Id,
+                                                Name = product.Name,
+                                                Quantity = quantity,
+                                                Price = product.Price,
+                                                SubTotal = product.Price * quantity
+                                            };
+                                        }).ToList(),
+                Total = sale.Orders.SelectMany(order => order.Products)
+                           .Sum(po => products.FirstOrDefault(p => p.Id == po.Product).Price * po.Quantity)
+            });
+            return result;
         }
 
         public Guid Add(SaleAddModel saleAddModel)

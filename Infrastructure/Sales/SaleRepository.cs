@@ -23,6 +23,11 @@ namespace Infrastructure.Sales
             return [];
         }
 
+        public IEnumerable<Sale> GetAllUnpayed()
+        {
+            return GetAll().Where(s => !s.Payed);
+        }
+
         public bool Add(Sale sale)
         {
             var sales = GetAll().ToList();

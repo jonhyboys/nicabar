@@ -1,0 +1,33 @@
+﻿@using Application.Sales
+@using Application.Products
+@model IEnumerable<Application.Sales.InvoiceViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul>
+    @foreach (InvoiceViewModel sale in Model as IEnumerable<InvoiceViewModel>)
+    {
+        <li>
+            <h1>@sale.TableName<span>+</span></h1>
+            <div>
+                <Table>
+                    <tbody>
+                        @foreach (ProductSaleViewModel product in sale.Products)
+                        {
+                            <tr>
+                                <td>@product.Name</td>
+                                <td>@product.Price</td>
+                                <td>@product.Quantity</td>
+                                <td>@product.SubTotal</td>
+                            </tr>                         
+                        }
+                    </tbody>                    
+                </Table>
+            </div>
+        </li>
+    }
+</ul>
+
