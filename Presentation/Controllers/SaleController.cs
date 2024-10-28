@@ -2,7 +2,6 @@
 using Application.Products;
 using Application.Sales;
 using Application.Tables;
-using Domain.Products;
 using Domain.Sales;
 using Domain.Tables;
 using Microsoft.AspNetCore.Mvc;
@@ -44,7 +43,7 @@ namespace Presentation.Controllers
         // GET: SaleController/Create
         public ActionResult Create(Guid table, string tableName)
         {
-            ViewData["CategoryList"] = _categoryService.GetInUse().ToList();
+            ViewData["CategoryList"] = _categoryService.GetInUse();
             ViewData["ProductList"] = _productService.GetAll();
             ViewData["TableName"] = tableName;
             Sale model = new Sale();

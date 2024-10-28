@@ -47,6 +47,15 @@
 
 .counter em { font-size: .4em; }
 
+#note {
+    display: flex;
+    flex-direction: column;
+}
+
+#note span { text-align: right; }
+
+#note textarea { margin-top: 10px; }
+
 #sale-resume {
     border-top: 1px solid #999;
     display: flex;
@@ -57,7 +66,7 @@
 
 #sale-resume > h1 {
     font-size: 1em;
-    text-align: right;
+    text-align: center;
 }
 
 #sale-resume li {

@@ -8,6 +8,7 @@
         $('.product-list').on('click', '.minus-button', OnClick_MinusButton);
         $('.product-list').on('click', '.plus-button', OnClick_PlusButton);
         $('#btn-save').on('click', OnClick_SaveButton);
+        $('#note span').on('click', OnClick_AddNoteSpan);
     });
 
     //Events
@@ -34,6 +35,8 @@
     }
 
     function OnClick_SaveButton() { postOrder(); }
+
+    function OnClick_AddNoteSpan() { $('#note textarea').removeClass('hide'); }
 
     //Products
     function showProducts(productList) {
@@ -79,6 +82,8 @@
             saleResume.products.push(product);
             addProductToSaleResumeView(product);
         }
+        if (saleResume.products.length > 0) { $('#btn-save').removeAttr('disabled'); }
+        else { $('#btn-save').attr('disabled', true); }
         console.log(saleResume);
     }
 
@@ -110,7 +115,7 @@
             Order: {
                 Id: null,
                 Products: products,
-                Note: ''
+                Note: $('#note textarea').val()
             }
         };
     }
@@ -119,7 +124,9 @@
         $('#sale-resume').attr('data-id', saleId);
         $('#sale-resume > ul').html('');
         $('strong.to-sale').text('0');
+        $('#note textarea').val('').addClass('hide');
         saleResume.products = [];
+        $('#btn-save').attr('disabled', true);
     }
 
     //Server

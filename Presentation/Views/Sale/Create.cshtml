@@ -39,10 +39,15 @@
     }
 </div>
 
+<div id="note">
+    <span>Agregar nota</span>
+    <textarea class="hide"></textarea>
+</div>
+
 <div id="sale-resume" data-table="@Model.Table">
     <h1>Resumen de esta venta</h1>
     <ul></ul>
-    <input type="submit" value="Guardar" class="btn btn-primary" id="btn-save" />
+    <input type="submit" value="Guardar" class="btn btn-primary" id="btn-save" disabled />
 </div>
 
 @section Scripts {
