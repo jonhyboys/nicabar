@@ -1,0 +1,36 @@
+﻿h1 {
+    background: #C1C1C1;
+    font-size: 15px;
+    margin-bottom: 15px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+#invoices h2 { font-size: 17px; }
+
+#invoices table { width: 100%; }
+
+#invoices td {
+    border: 1px solid #333;
+    padding: 3px 10px;
+    text-align: right;
+}
+
+    #invoices td:first-child {
+        text-align: left;
+    }
+
+    #invoices td:nth-child(3),
+    #invoices td:nth-child(5) {
+        text-align: center;
+    }
+
+#invoices tfoot {
+    background: #F1F1F1;
+    font-weight: bold;
+}
+
+#invoices .btn-container {
+    padding: 10px 0;
+    text-align: right;
+}
