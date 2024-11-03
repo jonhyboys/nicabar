@@ -13,79 +13,16 @@ namespace Presentation.Controllers
             _saleService = saleService;
         }
 
-        // GET: InvoiceController
+        [HttpGet]
         public ActionResult Index()
         {
             return View(_saleService.GetAllUnpayed());
         }
 
-        // GET: InvoiceController/Details/5
-        public ActionResult Details(int id)
+        [HttpPut()]
+        public ActionResult Pay(Guid id)
         {
-            return View();
-        }
-
-        // GET: InvoiceController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: InvoiceController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: InvoiceController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: InvoiceController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: InvoiceController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: InvoiceController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            return Json(_saleService.Pay(id));
         }
     }
 }

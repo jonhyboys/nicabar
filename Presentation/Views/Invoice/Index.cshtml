@@ -7,9 +7,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section Styles {
-    <link rel="stylesheet" href="~/css/Home/Home.css" />
-}
+@section Styles { <link rel="stylesheet" href="~/css/Home/Home.css" /> }
 
 <h1>Facturas pendientes de pago</h1>
 <ul id="invoices">
@@ -39,9 +37,11 @@
                 </tfoot>
             </Table>
             <div class="btn-container">
-                <input type="submit" value="Pagar" class="btn btn-primary btn-pay" />
+                <input type="submit" value="Pagar" class="btn btn-primary btn-pay" data-sale="@sale.Id" />
             </div>
         </li>
     }
 </ul>
 
+
+@section Scripts { <script src="~/js/Home/Home.js?V=1.1"></script> }

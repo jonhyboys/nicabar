@@ -77,5 +77,13 @@ namespace Application.Sales
             }
             return id;
         }
+
+        public Guid Pay(Guid id)
+        {
+            Sale sale = _saleRepository.GetById(id);
+            sale.Payed = true;
+            if (_saleRepository.Update(sale)) { return sale.Id; }
+            return Guid.Empty;
+        }
     }
 }
