@@ -1,66 +1,29 @@
 ﻿@model IEnumerable<Domain.Tables.Table>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Mesas";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+@section Styles { <link rel="stylesheet" href="~/css/Tables/Tables.css" /> }
 
-<p>
-    <a asp-action="Create">Create New</a>
+<p id="btn-container">
+    <a asp-action="Create" class="btn btn-primary">Crear nueva mesa</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Capacity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Configuration)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Start)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.End)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Capacity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Configuration)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Start)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.End)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
+<ul id="tables">
+@foreach (var table in Model)
+{
+    <li data-id="@table.Id">
+        <div class="details">
+            <p>Mesa @table.Name</p>
+            <p>
+                <span><strong class="capacity">@table.Capacity</strong>(Capacidad)</span>|
+                <span><strong class="start">@table.Start</strong>(Inicio)</span>
+            </p>
+        </div>
+        <div class="btn-delete">@Html.ActionLink("Borrar", "Delete", new { id = table.Id })</div>
+    </li>
 }
-    </tbody>
-</table>
+</ul>
+
+@section Scripts { <script src="~/js/Tables/Tables.js?V=1.1"></script> }

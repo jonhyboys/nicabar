@@ -11,17 +11,6 @@
     "Quantity": 100
   },
   {
-    "Id": "f644abbc-3567-4883-8a25-6db366a2f0f3",
-    "Category": "8efd193f-5e23-4802-9351-d568a4b84286",
-    "Name": "Tostones",
-    "Description": "Comida",
-    "Presentation": "81760864-5777-4098-b621-6300deee342c",
-    "Measure": "085a79a9-b9be-4687-8d67-fcf8e3dd74d2",
-    "Cost": 50,
-    "Price": 150,
-    "Quantity": 10
-  },
-  {
     "Id": "09773c7b-5bae-46c7-87d9-4ba71a1ace54",
     "Category": "09dbf864-fc95-4b8d-8873-a826deef7b57",
     "Name": "Ron plata",

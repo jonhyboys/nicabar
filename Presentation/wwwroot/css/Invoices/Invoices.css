@@ -1,12 +1,4 @@
-﻿h1 {
-    background: #C1C1C1;
-    font-size: 15px;
-    margin-bottom: 15px;
-    padding: 10px 0;
-    text-align: center;
-}
-
-#invoices h2 { font-size: 17px; }
+﻿#invoices h2 { font-size: 17px; }
 
 #invoices table { width: 100%; }
 

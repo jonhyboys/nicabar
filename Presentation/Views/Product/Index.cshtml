@@ -5,74 +5,23 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Productos</h1>
+@section Styles { <link rel="stylesheet" href="~/css/Products/Products.css" /> }
 
-<p>
-    <a asp-action="Create">Nuevo</a>
+<p id="btn-container">
+    <a asp-action="Create" class="btn btn-primary">Crear nuevo producto</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th class="hide">
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Presentation)
-            </th>
-            <th class="hide">
-                @Html.DisplayNameFor(model => model.Measure)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cost)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Quantity)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td class="hide">
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Presentation)
-            </td>
-            <td class="hide">
-                @Html.DisplayFor(modelItem => item.Measure)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cost)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<ul id="products">
+@foreach (var product in Model) {
+    <li data-id="@product.Id">
+        <div class="details">
+            <p>@product.Name</p>
+            <p>
+                <span><strong class="cost">@product.Cost</strong>(Costo)</span>|
+                <span><strong class="price">@product.Price</strong>(Precio)</span>|
+                <span><strong class="inventary">@product.Quantity</strong>(Inventario)</span></p>
+        </div>
+        <div class="btn-delete">@Html.ActionLink("Borrar", "Delete", new { id = product.Id })</div>
+    </li>}
+</ul>
+
+@section Scripts { <script src="~/js/Products/Products.js?V=1.1"></script> }

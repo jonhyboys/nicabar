@@ -3,13 +3,12 @@
 @model IEnumerable<Application.Sales.InvoiceViewModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Facturas activas";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section Styles { <link rel="stylesheet" href="~/css/Home/Home.css" /> }
+@section Styles { <link rel="stylesheet" href="~/css/Invoices/Invoices.css" /> }
 
-<h1>Facturas pendientes de pago</h1>
 <ul id="invoices">
     @foreach (InvoiceViewModel sale in Model as IEnumerable<InvoiceViewModel>)
     {
@@ -44,4 +43,4 @@
 </ul>
 
 
-@section Scripts { <script src="~/js/Home/Home.js?V=1.1"></script> }
+@section Scripts { <script src="~/js/Invoices/Invoices.js?V=1.1"></script> }
