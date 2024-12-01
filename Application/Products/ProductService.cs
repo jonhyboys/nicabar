@@ -31,7 +31,6 @@ namespace Application.Products
                 Category = productAddModel.Category,
                 Name = productAddModel.Name,
                 Description = productAddModel.Description,
-                Presentation = productAddModel.Presentation,
                 Measure = productAddModel.Measure,
                 Cost = productAddModel.Cost,
                 Price = productAddModel.Price,
@@ -55,7 +54,6 @@ namespace Application.Products
             Add(new ProductAddModel() {
                 Name = "Coca cola",
                 Description = "Bebida carbonatada",
-                Presentation = Guid.NewGuid(),
                 Cost = 15,
                 Price = 35,
                 Quantity = 100,
@@ -65,7 +63,6 @@ namespace Application.Products
             Add(new ProductAddModel() {
                 Name = "Tostones",
                 Description = "Comida",
-                Presentation = Guid.NewGuid(),
                 Cost = 50,
                 Price = 150,
                 Quantity = 10,
@@ -75,7 +72,6 @@ namespace Application.Products
             Add(new ProductAddModel() {
                 Name = "Ron plata",
                 Description = "Ron",
-                Presentation = Guid.NewGuid(),
                 Cost = 75,
                 Price = 215,
                 Quantity = 80,
@@ -85,7 +81,6 @@ namespace Application.Products
             Add(new ProductAddModel() {
                     Name = "Toña",
                     Description = "Cerveza",
-                    Presentation = Guid.NewGuid(),
                     Cost = 15,
                     Price = 35,
                     Quantity = 280,
@@ -96,7 +91,6 @@ namespace Application.Products
             {
                 Name = "Limonada",
                 Description = "Refresco",
-                Presentation = Guid.NewGuid(),
                 Cost = 15,
                 Price = 35,
                 Quantity = 280,

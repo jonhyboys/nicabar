@@ -1,8 +1,10 @@
 ﻿using Domain.Categories;
 using Domain.Entities.Products;
+using Domain.Measures;
 using Domain.Sales;
 using Domain.Tables;
 using Infrastructure.Categories;
+using Infrastructure.Measures;
 using Infrastructure.Products;
 using Infrastructure.Sales;
 using Infrastructure.Tables;
@@ -18,6 +20,7 @@ namespace Infrastructure
             services.AddScoped<ISaleRepository, SaleRepository>();
             services.AddScoped<ITableRepository, TableRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IMeasureRepository, MeasureRepository>();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Application.Categories;
+using Application.Measures;
 using Application.Products;
 using Application.Sales;
 using Application.Tables;
@@ -14,6 +15,7 @@ namespace Application
             services.AddScoped<ISaleService, SaleService>();
             services.AddScoped<ITableService, TableService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IMeasureService, MeasureService>();
         }
     }
 }

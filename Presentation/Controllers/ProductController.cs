@@ -1,4 +1,6 @@
-﻿using Application.Products;
+﻿using Application.Categories;
+using Application.Measures;
+using Application.Products;
 using Domain.Products;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,10 +9,16 @@ namespace Presentation.Controllers
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
+        private readonly ICategoryService _categoryService;
+        private readonly IMeasureService _measureService;
 
-        public ProductController(IProductService productService)
+        public ProductController(IProductService productService,
+            ICategoryService categoryService,
+            IMeasureService measureService)
         {
             _productService = productService;
+            _categoryService = categoryService;
+            _measureService = measureService;
         }
 
         // GET: ProductController
@@ -29,6 +37,8 @@ namespace Presentation.Controllers
         // GET: ProductController/Create
         public ActionResult Create()
         {
+            ViewData["Measures"] = _measureService.GetAll();
+            ViewData["Categories"] = _categoryService.GetAll();
             return View();
         }
 
@@ -51,6 +61,8 @@ namespace Presentation.Controllers
         // GET: ProductController/Edit/5
         public ActionResult Edit(Guid id)
         {
+            ViewData["Measures"] = _measureService.GetAll();
+            ViewData["Categories"] = _categoryService.GetAll();
             Product product = _productService.GetById(id);
             return View(product);
         }

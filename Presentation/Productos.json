@@ -1,57 +1,52 @@
 [
   {
-    "Id": "7f05fac6-d0c9-4571-a3bb-8fadb653b204",
+    "Id": "ecb872d9-48b6-404c-8634-50423c2cf075",
     "Category": "dc5e8755-1c50-415e-9f9e-2ddbade3e45b",
     "Name": "Coca cola",
     "Description": "Bebida carbonatada",
-    "Presentation": "388cfce9-9ff4-474c-b7bd-c445b346c56e",
-    "Measure": "8149b874-f669-4103-a706-151244345fe5",
+    "Measure": "b974ed9b-d9f5-4992-b9b6-4d505bcb5042",
     "Cost": 15,
     "Price": 35,
     "Quantity": 100
   },
   {
-    "Id": "09773c7b-5bae-46c7-87d9-4ba71a1ace54",
+    "Id": "07b2d881-c426-4dd3-92cb-b808124e0e9f",
+    "Category": "8efd193f-5e23-4802-9351-d568a4b84286",
+    "Name": "Tostones",
+    "Description": "Comida",
+    "Measure": "bdaf03e4-92f6-4dc8-8a13-f82b460b6cc2",
+    "Cost": 50,
+    "Price": 150,
+    "Quantity": 10
+  },
+  {
+    "Id": "c062eab8-e062-4816-8450-f7628d70dbd3",
     "Category": "09dbf864-fc95-4b8d-8873-a826deef7b57",
     "Name": "Ron plata",
     "Description": "Ron",
-    "Presentation": "d6335857-76d0-43a8-9f05-cefab11e0c13",
-    "Measure": "115b7a09-cfb3-427c-a610-47a8c300f6e2",
+    "Measure": "72802e3e-07bc-41d1-a09e-ca08e1ad6a0e",
     "Cost": 75,
     "Price": 215,
     "Quantity": 80
   },
   {
-    "Id": "ad3935a4-8c28-4c1b-b195-6778c9faa0ed",
+    "Id": "8200e583-2af6-4989-96e2-c318d4855c28",
     "Category": "09dbf864-fc95-4b8d-8873-a826deef7b57",
     "Name": "To\u00F1a",
     "Description": "Cerveza",
-    "Presentation": "8c9afd5c-bacb-4ff1-a923-cab83b8625b8",
-    "Measure": "8654b80c-628c-4e60-8fbb-a73070287ea6",
+    "Measure": "cc7c0020-700e-4ddc-a34b-c1a04bd51055",
     "Cost": 15,
     "Price": 35,
     "Quantity": 280
   },
   {
-    "Id": "ac8cfe27-0f67-4565-8134-f39bea542a3f",
+    "Id": "820a7993-0b9c-49b1-83dc-35b0ddbbb365",
     "Category": "dc5e8755-1c50-415e-9f9e-2ddbade3e45b",
     "Name": "Limonada",
     "Description": "Refresco",
-    "Presentation": "3b5b5694-0f7e-4ffb-8711-8a131db733c8",
-    "Measure": "4a8c0e7a-ec3f-4f87-a380-c9ebbd4dc63d",
+    "Measure": "ad893876-f638-43c3-a8f0-b98cdfcda89f",
     "Cost": 15,
     "Price": 35,
     "Quantity": 280
-  },
-  {
-    "Id": "ad6a7526-cbd9-41d1-b9e2-d0aa2f3feaec",
-    "Category": "00000000-0000-0000-0000-000000000000",
-    "Name": "Tostones",
-    "Description": "Comida",
-    "Presentation": "00000000-0000-0000-0000-000000000000",
-    "Measure": "00000000-0000-0000-0000-000000000000",
-    "Cost": 60,
-    "Price": 120,
-    "Quantity": 500
   }
 ]
