@@ -58,3 +58,11 @@ li {
 .form-group {
     margin-top: 10px;
 }
+
+#go-back{
+    background: url(/icons/go-back.png) no-repeat left center;
+    background-size: 20px;
+    display: block;
+    text-indent: -20000px;
+    width: 20px;
+}

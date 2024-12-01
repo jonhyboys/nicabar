@@ -86,5 +86,26 @@
       }
     ],
     "Payed": false
+  },
+  {
+    "Id": "4e1000a2-7c33-4428-a2a5-a1aedebc878b",
+    "Table": "d429f903-dbab-4e1e-8092-ca678fb454e9",
+    "Orders": [
+      {
+        "Id": "ce193ca1-0815-431c-b059-6c8515d28944",
+        "Products": [
+          {
+            "Product": "ecb872d9-48b6-404c-8634-50423c2cf075",
+            "Quantity": 2
+          },
+          {
+            "Product": "8200e583-2af6-4989-96e2-c318d4855c28",
+            "Quantity": 2
+          }
+        ],
+        "Note": "Una coca zero"
+      }
+    ],
+    "Payed": false
   }
 ]
