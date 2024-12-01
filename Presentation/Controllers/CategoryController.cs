@@ -1,14 +1,22 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Application.Categories;
+using Domain.Categories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers
 {
     public class CategoryController : Controller
     {
+        private readonly ICategoryService _categoryService;
+
+        public CategoryController(ICategoryService categoryService)
+        {
+            _categoryService = categoryService;
+        }
+
         // GET: CategoryController
         public ActionResult Index()
         {
-            return View();
+            return View(_categoryService.GetAll());
         }
 
         // GET: CategoryController/Details/5
@@ -39,9 +47,10 @@ namespace Presentation.Controllers
         }
 
         // GET: CategoryController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            Category category = _categoryService.GetById(id);
+            return View(category);
         }
 
         // POST: CategoryController/Edit/5

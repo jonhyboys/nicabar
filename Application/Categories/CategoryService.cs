@@ -1,6 +1,5 @@
 ﻿using Application.Products;
 using Domain.Categories;
-using Domain.Products;
 
 namespace Application.Categories
 {
@@ -25,7 +24,7 @@ namespace Application.Categories
 
         public Category GetById(Guid id)
         {
-            return null;// _categoryRepository.GetById(id);
+            return _categoryRepository.GetById(id);
         }
 
         public IEnumerable<Category> GetInUse()
@@ -46,12 +45,12 @@ namespace Application.Categories
 
         public bool Update(Category category)
         {
-            return true;// _categoryRepository.Update(category);
+            return _categoryRepository.Update(category);
         }
 
         public bool Delete(Guid id)
         {
-            return true; // _categoryRepository.Delete(id);
+            return _categoryRepository.Delete(id);
         }
 
         private void SetLocalCategories()

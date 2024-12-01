@@ -42,5 +42,16 @@
     "Cost": 15,
     "Price": 35,
     "Quantity": 280
+  },
+  {
+    "Id": "ad6a7526-cbd9-41d1-b9e2-d0aa2f3feaec",
+    "Category": "00000000-0000-0000-0000-000000000000",
+    "Name": "Tostones",
+    "Description": "Comida",
+    "Presentation": "00000000-0000-0000-0000-000000000000",
+    "Measure": "00000000-0000-0000-0000-000000000000",
+    "Cost": 60,
+    "Price": 120,
+    "Quantity": 500
   }
 ]

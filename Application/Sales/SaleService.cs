@@ -36,6 +36,10 @@ namespace Application.Sales
                                         .Select(g => {
                                             var product = products.FirstOrDefault(p => p.Id == g.Key);
                                             var quantity = g.Sum(po => po.Quantity);
+                                            if (product == null)
+                                            {
+                                                return new ProductSaleViewModel();
+                                            }
                                             return new ProductSaleViewModel()
                                             {
                                                 Id = product.Id,
